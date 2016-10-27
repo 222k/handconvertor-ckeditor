@@ -156,7 +156,7 @@ module.exports = {
 		test.done();
 	},
 	testPokerStarsHeadsUp : function(test) {
-		var history = fs.readFileSync('./hands/headsup', 'utf-8');
+		var history = fs.readFileSync('./hands/pokerstars/headsup', 'utf-8');
 		var parser = handconvertor.detector.detect(history);
 		test.ok(parser !== null);
 		test.equal(parser.name , 'Pokerstars');
@@ -210,7 +210,7 @@ module.exports = {
 		test.done();
 	},
 	testPokerStarsFullingNLHE : function(test) {
-		var history = fs.readFileSync('./hands/fullring_nlhe', 'utf-8');
+		var history = fs.readFileSync('./hands/pokerstars/fullring_nlhe', 'utf-8');
 		var parser = handconvertor.detector.detect(history);
 		test.ok(parser !== null);
 		test.equal(parser.name , 'Pokerstars');
@@ -329,7 +329,7 @@ module.exports = {
 	},
 	testPSFreeFold : function(test) {
 
-			var history = fs.readFileSync('./hands/pokerstars_free_fold', 'utf-8');
+			var history = fs.readFileSync('./hands/pokerstars/pokerstars_free_fold', 'utf-8');
 			var parser = handconvertor.detector.detect(history);
 			test.ok(parser !== null);
 			test.equal(parser.name , 'Pokerstars');
@@ -410,7 +410,7 @@ module.exports = {
 			test.done();
 	},
 	testPartialExpectError : function(test) {
-			var history = fs.readFileSync('./hands/pokerstars_partial', 'utf-8');
+			var history = fs.readFileSync('./hands/pokerstars/pokerstars_partial', 'utf-8');
 			var parser = handconvertor.detector.detect(history);
 			test.ok(parser !== null);
 			test.equal(parser.name , 'Pokerstars');
@@ -425,7 +425,7 @@ module.exports = {
 			test.done();
 	},
 	testPartialNoSummary : function(test) {
-			var history = fs.readFileSync('./hands/pokerstars_partial_no_summary', 'utf-8');
+			var history = fs.readFileSync('./hands/pokerstars/pokerstars_partial_no_summary', 'utf-8');
 			var parser = handconvertor.detector.detect(history);
 			test.ok(parser !== null);
 			test.equal(parser.name , 'Pokerstars');
@@ -441,7 +441,7 @@ module.exports = {
 			test.done();
 	},
 	testPokerStarsAnteGame : function(test) {
-			var history = fs.readFileSync('./hands/pokerstars_with_ante', 'utf-8');
+			var history = fs.readFileSync('./hands/pokerstars/pokerstars_with_ante', 'utf-8');
 			var parser = handconvertor.detector.detect(history);
 			test.ok(parser !== null);
 			test.equal(parser.name , 'Pokerstars');
