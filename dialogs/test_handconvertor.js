@@ -586,6 +586,15 @@ module.exports = {
 			test.equal(result.preflop.hero_holecard,'Kc Qc');
 			test.done();
 	},
+	testPokerStarsNoHoleCardFinalPot : function(test) {
+			var history = fs.readFileSync('./hands/pokerstars/no_holecard_on_final_pot', 'utf-8');
+			var parser = handconvertor.detector.detect(history);
+			test.ok(parser !== null);
+			test.equal(parser.name , 'Pokerstars');
+			var result = parser.parse(history);
+			test.equal(result.summary.results[1].holecards,'As 8s Jh Ac');
+			test.done();
+	},
 	// testACRNLHE : function(test) {
 	// 			var history = fs.readFileSync('./hands/wpn_acr', 'utf-8');
 	// 			var parser = handconvertor.detector.detect(history);

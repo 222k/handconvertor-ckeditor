@@ -523,7 +523,7 @@ Pokerstars.prototype.parse = function(history) {
       }
 
       var entry = {content : txt.trim()};
-      var hands = this.regExMultiple(/\[[0-9A-z ]*\]/g, summaryrow);
+      var hands = this.regExMultiple(/\[[0-9A-z ]*\]/g, this.replacePlayerName(summaryrow, players));
       if(hands.length > 0) {
         entry.holecards = this.parseBoard(hands[0]);
       }
