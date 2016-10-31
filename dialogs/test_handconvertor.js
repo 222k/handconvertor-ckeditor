@@ -577,6 +577,15 @@ module.exports = {
 			}
 			test.done();
 	},
+	testPokerStarsHeroAccroasch : function(test) {
+			var history = fs.readFileSync('./hands/pokerstars/username_Accroasch', 'utf-8');
+			var parser = handconvertor.detector.detect(history);
+			test.ok(parser !== null);
+			test.equal(parser.name , 'Pokerstars');
+			var result = parser.parse(history);
+			test.equal(result.preflop.hero_holecard,'Kc Qc');
+			test.done();
+	},
 	// testACRNLHE : function(test) {
 	// 			var history = fs.readFileSync('./hands/wpn_acr', 'utf-8');
 	// 			var parser = handconvertor.detector.detect(history);

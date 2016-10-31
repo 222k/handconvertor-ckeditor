@@ -437,7 +437,8 @@ Pokerstars.prototype.parse = function(history) {
   // preflop
   var preflop_txt = history.substring(history.indexOf('*** HOLE CARDS'), history.indexOf('*** ',history.indexOf('*** HOLE CARDS ***')+19));
   var preflop_rows = preflop_txt.split('\n');
-  var holecards = this.regExMultiple(/[0-9ATJKQ][(s|c|d|h)]/g, preflop_rows[1]);
+  var dealtText = preflop_rows[1].substring(preflop_rows[1].indexOf('['), preflop_rows[1].length);
+  var holecards = this.regExMultiple(/[0-9ATJKQ][(s|c|d|h)]/g, dealtText);
   result.preflop.hero_holecard = holecards.join(' ');
   result.preflop.actions = [];
   result.preflop.actions = this.parseActions(preflop_rows.slice(2,preflop_rows.length), result.players);
