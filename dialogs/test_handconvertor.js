@@ -595,6 +595,14 @@ module.exports = {
 			test.equal(result.summary.results[1].holecards,'As 8s Jh Ac');
 			test.done();
 	},
+	testPokerStarsShortRingError : function(test) {
+			var history = fs.readFileSync('./hands/pokerstars/shortring_error', 'utf-8');
+			var parser = handconvertor.detector.detect(history);
+			test.ok(parser !== null);
+			test.equal(parser.name , 'Pokerstars');
+			var result = parser.parse(history);
+			test.done();
+	},
 	// testACRNLHE : function(test) {
 	// 			var history = fs.readFileSync('./hands/wpn_acr', 'utf-8');
 	// 			var parser = handconvertor.detector.detect(history);

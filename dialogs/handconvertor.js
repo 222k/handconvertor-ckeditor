@@ -387,8 +387,12 @@ Pokerstars.prototype.parse = function(history) {
   result.summary.results = [];
   result.raw = history;
   result.is_tournament = history.indexOf('Tournament') > 0;
-  var dealt_text = /Dealt to .* \[/g.exec(history)[0];
-  var heroname = dealt_text.substring(0,dealt_text.length-1).replace('Dealt to ','').trim();
+  var dealt_texts = /Dealt to .* \[/g.exec(history);
+  var heroname = '';
+  if(dealt_texts !== null && dealt_texts.length > 0) {
+    var dealt_text = dealt_text[0];
+    heroname = dealt_text.substring(0,dealt_text.length-1).replace('Dealt to ','').trim();
+  }
   var smallplayer = /.*: posts small blind/g.exec(history)[0];
   smallplayer = smallplayer.substring(0,smallplayer.indexOf(':')).trim();
 
